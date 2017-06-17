@@ -43,3 +43,5 @@ export function mutations (mutations, configs = {}) {
     }
   })
 }
+
+export default compose
