@@ -29,8 +29,8 @@ export function mutations (mutations, configs = {}) {
           props[name] = wrap(this.props[name], async (mutate, ...args) => {
             this.setState({ [name]: {loading: true} })
             try {
-              const data = await mutate(...args)
-              this.setState({ [name]: {loading: false, data} })
+              const { data } = await mutate(...args)
+              this.setState({ [name]: {loading: false, data: data[name]} })
               return data
             } catch (error) {
               this.setState({ [name]: {loading: false, error} })
